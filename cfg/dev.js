@@ -9,6 +9,7 @@ let defaultSettings = require('./defaults');
 let BowerWebpackPlugin = require('bower-webpack-plugin');
 
 let config = Object.assign({}, baseConfig, {
+  // 页面入口文件配置
   entry: [
     'webpack-dev-server/client?http://127.0.0.1:' + defaultSettings.port,
     'webpack/hot/only-dev-server',
@@ -16,6 +17,7 @@ let config = Object.assign({}, baseConfig, {
   ],
   cache: true,
   devtool: 'eval-source-map',
+    // 插件项
   plugins: [
     new webpack.HotModuleReplacementPlugin(),
     new webpack.NoErrorsPlugin(),

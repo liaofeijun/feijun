@@ -54,10 +54,12 @@
     "null-loader": "^0.1.1",
     "open": "0.0.5",
     "phantomjs-prebuilt": "^2.1.13",
+    "postcss": "^5.2.5",
     "react-addons-test-utils": "^15.0.0",
     "react-hot-loader": "^1.2.9",
     "rimraf": "^2.4.3",
     "style-loader": "^0.13.1",
+    "stylus-loader": "^2.3.1",
     "supports-color": "^3.1.2",
     "url-loader": "^0.5.6",
     "webpack": "^1.12.0",
@@ -67,6 +69,8 @@
     "core-js": "^2.0.0",
     "normalize.css": "^4.0.0",
     "react": "^15.0.0",
-    "react-dom": "^15.0.0"
+    "react-dom": "^15.0.0",
+    "swig": "^1.4.2",
+    "swig-react": "git://github.com/jnu/swig-react.git#v0.0.1"
   }
 }

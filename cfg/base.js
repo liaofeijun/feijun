@@ -14,6 +14,7 @@ module.exports = {
   port: defaultSettings.port,
   debug: true,
   devtool: 'eval',
+  // 入口文件输出配置
   output: {
     path: path.join(__dirname, '/../dist/assets'),
     filename: 'app.js',
@@ -27,8 +28,11 @@ module.exports = {
     publicPath: defaultSettings.publicPath,
     noInfo: false
   },
+  // 其它解决方案配置
   resolve: {
+    // 自动扩展文件名后缀名,意味着我们require模块可以省略不写后缀名
     extensions: ['', '.js', '.jsx'],
+    // 模块别名定义,方便后续直接引用别名,无须写绝对路径
     alias: {
       actions: `${defaultSettings.srcPath}/actions/`,
       components: `${defaultSettings.srcPath}/components/`,
