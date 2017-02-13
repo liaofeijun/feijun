@@ -81,6 +81,42 @@ let ImgFigures = React.createClass({
     }
 });
 
+
+// 控制组件
+let ControllerUnit = React.createClass({
+
+    handleClick: function(e){
+        // 如果点击的是当前正在选中态的按钮,则翻转图片
+        if( this.props.arrange.isCenter ){
+            this.props.inverse();
+        }else{
+            this.props.center();
+        }
+
+        e.preventDefault();
+        e.stopPropagation();
+    },
+
+    render: function(){
+
+        let controllerUnitClassName = 'controller-unit';
+
+        if( this.props.arrange.isCenter ){
+            controllerUnitClassName += ' is-center';
+
+            if( this.props.arrange.isInverse ){
+                controllerUnitClassName += ' is-inverse';
+            }
+        }
+
+
+        return(
+            <span className = {controllerUnitClassName} onClick = {this.handleClick}></span>
+        )
+
+    }
+});
+
 let GalleryByReactApp = React.createClass({
     getInitialState: function(){
         return {
@@ -161,7 +197,7 @@ let GalleryByReactApp = React.createClass({
 
             imgsArrangeTopArr = [],
             topImgSpliceIndex = 0,
-            topImgNum = Math.ceil( Math.random()*2 ), // 取一个或者不取
+            topImgNum = Math.floor( Math.random()*2 ), // 取一个或者不取
             imgsArrangeCenterArr = imgsArrangeArr.splice(centerIndex,1);
 
         // 居中centerIndex 的图片, 居中的图片不需要旋转
@@ -282,6 +318,8 @@ let GalleryByReactApp = React.createClass({
             }
 
             imgFigures.push(<ImgFigures key={index} data = {value} ref = {'imgFigure' + index} arrange = {this.state.imgsArrangeArr[index]} inverse = {this.inverse(index)}  center = {this.center(index)} />);
+
+            controllerUnits.push(<ControllerUnit arrange = {this.state.imgsArrangeArr[index]} inverse = {this.inverse(index)}  center = {this.center(index)} />);
         }.bind(this));
 
         return (
